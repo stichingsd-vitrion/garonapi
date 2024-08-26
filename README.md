@@ -1,15 +1,28 @@
-# garonapi
+# GaronAPI
 
-To install dependencies:
+GaronAPI is a simple Todo API built with Express.js, TypeScript, and SQLite using Drizzle ORM.
 
-```bash
-bun install
+## Prerequisites
+
+- Node.js (v14.0.0 or newer)
+- Yarn (v1.22.0 or newer)
+
+## Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/stichingsd-vitrion/garonapi.git
+   cd garonapi
+   ```
+
+2. Install dependencies:
+   ```
+   yarn install
+   ```
+
+## Running the API
+
+Start the server:
 ```
-
-To run:
-
-```bash
-bun run index.ts
+yarn start
 ```
-
-This project was created using `bun init` in bun v1.0.25. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

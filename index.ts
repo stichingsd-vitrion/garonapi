@@ -4,7 +4,7 @@ import express from 'express';
 import { todos } from './db/schema';
 import { eq } from 'drizzle-orm';
 import { migrate } from 'drizzle-orm/better-sqlite3/migrator';
-import { db } from './db/migrate';
+import { db, runMigrations } from './db/migrate';
 
 const app = express();
 app.use(express.json());
@@ -61,6 +61,17 @@ app.delete('/todos/:id', async (req, res) => {
 });
 
 const port = 3005;
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+
+async function startServer() {
+  try {
+    await runMigrations();
+    app.listen(port, () => {
+      console.log(`Server running at http://localhost:${port}`);
+    });
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
+}
+
+startServer();
