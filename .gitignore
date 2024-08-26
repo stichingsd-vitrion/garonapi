@@ -152,6 +152,9 @@ dist
 
 .dynamodb/
 
+# SQLite database
+sqlite.db
+
 # TernJS port file
 
 .tern-port
